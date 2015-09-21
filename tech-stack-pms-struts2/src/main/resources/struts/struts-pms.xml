@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<!-- 权限管理 permission -->
+	<package name="pms" extends="loginPackage">
+	
+		<!-- 权限菜单管理 -->
+		<action name="pmsMenu_*" class="com.techstack.pms.struts2.web.PmsMenuController" method="{1}">
+			<result name="pmsMenuList">page/pms/pmsMenu/pmsMenuList.jsp</result>
+			<result name="pmsMenuAdd">page/pms/pmsMenu/pmsMenuAdd.jsp</result>
+			<result name="pmsMenuEdit">page/pms/pmsMenu/pmsMenuEdit.jsp</result>
+		</action>
+	
+		<!-- 权限管理，包括权限点、角色、操作员和管理 -->
+		<action name="pmsPermission_*" class="com.techstack.pms.struts2.web.PmsPermissionController" method="{1}">
+			<result name="pmsActionList">page/pms/pmsAction/pmsActionList.jsp</result>
+			<result name="pmsActionAdd">page/pms/pmsAction/pmsActionAdd.jsp</result>
+			<result name="pmsActionEdit">page/pms/pmsAction/pmsActionEdit.jsp</result>
+			<result name="pmsMenuLookUp">page/pms/pmsAction/pmsMenuLookUp.jsp</result>
+			<!-- <result name="PmsRoleList">page/pms/PmsRoleList.jsp</result>
+			<result name="PmsRoleAdd">page/pms/PmsRoleAdd.jsp</result>
+			<result name="PmsRoleEdit">page/pms/PmsRoleEdit.jsp</result>
+			<result name="PmsUserList">page/pms/PmsUserList.jsp</result>
+			<result name="PmsUserView">page/pms/PmsUserView.jsp</result>
+			<result name="PmsUserViewOwnInfo">page/pms/PmsUserViewOwnInfo.jsp</result>
+			<result name="PmsUserAdd">page/pms/PmsUserAdd.jsp</result>
+			<result name="PmsUserEdit">page/pms/PmsUserEdit.jsp</result>
+			<result name="PmsUserResetPwd">page/pms/PmsUserResetPwd.jsp</result>
+			<result name="PmsUserChangeOwnPwd">page/pms/PmsUserChangeOwnPwd.jsp</result>
+			<result name="assignPermissionUI">page/pms/assignPermissionUI.jsp</result> -->
+			
+		</action>
+		
+		<!-- 角色管理 -->
+		<action name="pmsRole_*"  class="com.techstack.pms.struts2.web.PmsRoleController" method="{1}">
+			<result name="pmsRoleList">page/pms/pmsRole/pmsRoleList.jsp</result>
+			<result name="pmsRoleAdd">page/pms/pmsRole/pmsRoleAdd.jsp</result>
+			<result name="pmsRoleEdit">page/pms/pmsRole/pmsRoleEdit.jsp</result>
+			<result name="assignPermissionUI">page/pms/pmsRole/assignPermissionUI.jsp</result>
+		</action>
+		
+		<!-- 用户管理 -->
+		<action name="pmsUser_*"  class="com.techstack.pms.struts2.web.PmsUserController" method="{1}">
+			<result name="pmsUserList">page/pms/pmsUser/pmsUserList.jsp</result>
+			<result name="pmsUserView">page/pms/pmsUser/pmsUserView.jsp</result>
+			<result name="pmsUserViewOwnInfo">page/pms/pmsUser/pmsUserViewOwnInfo.jsp</result>
+			<result name="pmsUserAdd">page/pms/pmsUser/pmsUserAdd.jsp</result>
+			<result name="pmsUserEdit">page/pms/pmsUser/pmsUserEdit.jsp</result>
+			<result name="pmsUserResetPwd">page/pms/pmsUser/pmsUserResetPwd.jsp</result>
+			<result name="pmsUserChangeOwnPwd">page/pms/pmsUser/pmsUserChangeOwnPwd.jsp</result>
+		</action>
+		
+	</package>
+
+</struts>
