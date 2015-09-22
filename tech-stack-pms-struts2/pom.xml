@@ -9,6 +9,18 @@
 	<description>tech-stack-pms-struts2</description>
 
 	<dependencies>
+	
+		<dependency>
+			<groupId>tech.stack.component</groupId>
+			<artifactId>tech-stack-component</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>tech.stack.pms.biz</groupId>
+			<artifactId>tech-stack-pms-biz</artifactId>
+			<version>0.0.1</version>
+		</dependency>
 
 		<!-- Struts2 Dependency Begin -->
 		<dependency>
@@ -38,24 +50,6 @@
 			<classifier>jdk15</classifier>
 		</dependency>
 		<!-- Struts2 Dependency End -->
-
-		<dependency>
-			<groupId>tech.stack.component</groupId>
-			<artifactId>tech-stack-component</artifactId>
-			<version>0.0.1</version>
-		</dependency>
-
-		<dependency>
-			<groupId>tech.stack.pms.biz</groupId>
-			<artifactId>tech-stack-pms-biz</artifactId>
-			<version>0.0.1</version>
-		</dependency>
-
-		<!-- <dependency>
-			<groupId>tech.stack.pms.jpa</groupId>
-			<artifactId>tech-stack-pms-jpa</artifactId>
-			<version>0.0.1</version>
-		</dependency> -->
 		
 		<!-- jetty -->
 		<dependency> 
@@ -75,13 +69,6 @@
 
 	<build>
 		<plugins>
-			<!-- <plugin>
-				<artifactId>maven-war-plugin</artifactId>
-				<configuration>
-					<version>3.0</version>
-				</configuration>
-			</plugin>-->
-
 			<!-- compiler插件, 设定JDK版本 -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
