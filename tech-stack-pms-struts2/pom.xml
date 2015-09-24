@@ -7,6 +7,12 @@
 	<!--<packaging>war</packaging>-->
 	<name>tech-stack-pms-struts2</name>
 	<description>tech-stack-pms-struts2</description>
+	
+	<properties>
+		<struts2.version>2.3.24</struts2.version>
+		<json-lib.version>2.4</json-lib.version>
+		<jetty-webapp.version>8.1.17.v20150415</jetty-webapp.version>
+	</properties>
 
 	<dependencies>
 	
@@ -25,28 +31,23 @@
 		<!-- Struts2 Dependency Begin -->
 		<dependency>
 			<groupId>org.apache.struts</groupId>
-			<artifactId>struts2-json-plugin</artifactId>
-			<version>2.3.15.1</version>
+			<artifactId>struts2-core</artifactId>
+			<version>${struts2.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.struts</groupId>
-			<artifactId>struts2-core</artifactId>
-			<version>2.3.4.1</version>
+			<artifactId>struts2-json-plugin</artifactId>
+			<version>${struts2.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.struts</groupId>
 			<artifactId>struts2-spring-plugin</artifactId>
-			<version>2.3.15.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.struts.xwork</groupId>
-			<artifactId>xwork-core</artifactId>
-			<version>2.3.4.1</version>
+			<version>${struts2.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>net.sf.json-lib</groupId>
 			<artifactId>json-lib</artifactId>
-			<version>2.4</version>
+			<version>${json-lib.version}</version>
 			<classifier>jdk15</classifier>
 		</dependency>
 		<!-- Struts2 Dependency End -->
@@ -55,13 +56,13 @@
 		<dependency> 
             <groupId>org.eclipse.jetty.aggregate</groupId> 
             <artifactId>jetty-webapp</artifactId> 
-            <version>8.1.16.v20140903</version>
+            <version>${jetty-webapp.version}</version>
             <scope>test</scope>
         </dependency> 
         <dependency> 
             <groupId>org.eclipse.jetty</groupId> 
             <artifactId>jetty-jsp</artifactId> 
-            <version>8.1.16.v20140903</version>
+            <version>${jetty-webapp.version}</version>
             <scope>test</scope>
         </dependency>
 
