@@ -3,11 +3,12 @@ package com.techstack.pms.springmvc.rest;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,14 +30,27 @@ public class PmsUserRestController {
 	private PmsUserBiz pmsUserBiz;
 	
 	@RequestMapping(method = RequestMethod.POST, consumes = MediaTypes.JSON)
-	public ResponseEntity<?> createPmsUser(PmsUserDTO pmsUser){
-		return null;
+	public ResponseEntity<?> createPmsUser(@RequestBody PmsUserDTO pmsUser){
+		pmsUserBiz.update(pmsUser);
+		return new ResponseEntity(pmsUser, HttpStatus.CREATED);
+	}
+	
+	@RequestMapping(method = RequestMethod.DELETE, consumes = MediaTypes.JSON)
+	public ResponseEntity<?> deletePmsUser(Long userId){
+		pmsUserBiz.deleteUserById(userId);
+		return new ResponseEntity(null, HttpStatus.ACCEPTED);
+	}
+	
+	@RequestMapping(method = RequestMethod.PUT, consumes = MediaTypes.JSON)
+	public ResponseEntity<?> updatePmsUser(PmsUserDTO pmsUser){
+		pmsUserBiz.update(pmsUser);
+		return new ResponseEntity(pmsUser, HttpStatus.OK);
 	}
 	
 	@RequestMapping(value ="/{id}", method = RequestMethod.GET, produces = MediaTypes.JSON_UTF_8)
-	public PmsUserDTO getPmsUser(@PathVariable("id") Long userId){
+	public ResponseEntity<?> getPmsUser(@PathVariable("id") Long userId){
 		PmsUserDTO pmsUserDTO = pmsUserBiz.getById(userId);
-		return pmsUserDTO;
+		return new ResponseEntity(pmsUserDTO, HttpStatus.OK);
 	}
 	
 	
